@@ -8,6 +8,6 @@ chmod +x install.sh && \
 bash install.sh
 ```
 想使用旧版将网址里的dev改成master
-path极力不推荐使用/v2ray了（大家懂的）
+
 
 欢迎补充wiki
