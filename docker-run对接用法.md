@@ -21,7 +21,7 @@ curl https://getcaddy.com | bash
 
 这一步是是建立伪装站点可自行发挥，v2ray-sspanel-v3-mod_Uim-plugin/Docker/Caddy_V2ray/里有我提供的站点文件
 
-## 第三步创建etc/caddy/Caddyfile
+## 第三步创建/etc/caddy/Caddyfile
 写入
 ```
 域名:443
