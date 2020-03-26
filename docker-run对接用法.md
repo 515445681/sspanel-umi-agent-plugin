@@ -9,7 +9,7 @@ docker run -d --name=v2ray \
 --network=host --restart=always \
 hulisang/v2ray_v3:go_pay
 ```
-
+数据库对接将usermysql改为1
 
 如果用到tls需要caddy反代的支持
 
