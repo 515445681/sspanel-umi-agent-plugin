@@ -3,30 +3,30 @@
 version: '2'
 services:
   v2ray:
-    image: ${docker_addresss}
+    image: hulisang/v2rayv3_go:pay
     restart: always
     network_mode: "host"
     environment:
-      sspanel_url: "${sspanel_url}"
-      key: "${sspanel_key}"
-      speedtest: ${sspanel_speedtest}
-      node_id: ${sspanel_node_id}
-      api_port: ${v2ray_api_port}
-      downWithPanel: ${v2ray_downWithPanel}
-      LDNS: "${LDNS}"
+      sspanel_url: "sspanel_url"
+      key: "mukey"
+      speedtest: 6
+      node_id: node_id
+      api_port: 2333
+      downWithPanel: 0
+      LDNS: localhost
       TZ: "Asia/Shanghai"
-      MYSQLHOST: ${v2ray_mysqlhost}
-      MYSQLDBNAME: ${v2ray_mysqldbname}
-      MYSQLUSR: ${v2ray_myqluser}
-      MYSQLPASSWD: "${v2ray_mysqlpassword}"
-      MYSQLPORT: ${v2ray_mysqlport}
-      PANELTYPE: ${v2ray_paneltype}
-      usemysql: ${v2ray_usemysql}
-      CF_Key: ${cloudflare_key}
-      CF_Email: ${cloudflare_email}
-      MUREGEX: "${MUREGEX}"
-      MUSUFFIX: "${MUSUFFIX}"
-      ProxyTCP: ${ProxyTCP}
+      MYSQLHOST: host
+      MYSQLDBNAME: mysqldbname
+      MYSQLUSR: myqluser
+      MYSQLPASSWD: mysqlpassword
+      MYSQLPORT: 3306
+      PANELTYPE: 0
+      usemysql: 0
+      CF_Key: cloudflare_key
+      CF_Email: cloudflare_email
+      MUREGEX: "%5m%id.%suffix"
+      MUSUFFIX: "microsoft.com"
+      ProxyTCP: 0
     volumes:
       - /etc/localtime:/etc/localtime:ro
     logging:
@@ -41,11 +41,11 @@ services:
       #      if u want to use cloudflare (for DNS challenge authentication)
       #      - CLOUDFLARE_EMAIL=xxxxxx@out.look.com
       #      - CLOUDFLARE_API_KEY=xxxxxxx
-      - V2RAY_DOMAIN=${v2ray_domain}
-      - V2RAY_PATH=${v2ray_path}
-      - V2RAY_EMAIL=${v2ray_email}
-      - V2RAY_PORT=${v2ray_local_port}
-      - V2RAY_OUTSIDE_PORT=${caddy_listen_port}
+      - V2RAY_DOMAIN=v2ray_domain
+      - V2RAY_PATH=/v2ray
+      - V2RAY_EMAIL=v2ray_email
+      - V2RAY_PORT=10550
+      - V2RAY_OUTSIDE_PORT=443
     network_mode: "host"
     volumes:
       - ./.caddy:/root/.caddy
